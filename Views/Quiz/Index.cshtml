@@ -1,0 +1,35 @@
+@{
+    ViewData["Title"] = "Loading Quiz";
+}
+
+<h1>Please wait while the quiz is being loaded...</h1>
+
+<!-- Optional: Add a spinner or other loading indicator -->
+<div id="loading-indicator">
+    <img src="/images/spinner.gif" alt="Loading..." style="width: 50px; height: 50px;" />
+</div>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Get the quiz id from TempData or query string if passed through URL
+            var quizId = '@TempData["QuizId"]';
+
+            // Fetch quiz data asynchronously from the backend
+            $.ajax({
+                url: '@Url.Action("LoadQuiz", "Quiz")',
+                type: 'GET',
+                data: { quizId: quizId },
+                success: function (data) {
+                    // When data is loaded, the server already rendered the QuizPage
+                    // so we can just replace the content of the current page with the loaded view
+                    $('body').html(data);
+                },
+                error: function (xhr, status, error) {
+                    alert('Error loading quiz: ' + error);
+                }
+            });
+        });
+    </script>
+}

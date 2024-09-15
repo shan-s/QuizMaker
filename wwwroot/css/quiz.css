@@ -1,0 +1,90 @@
+/* Removes bullet points */
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px; 
+}
+
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+.answer-option {
+    margin-left: 15px;
+    list-style-type: none;
+}
+
+/* Other styles */
+.question-text {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.correct-answer {
+    color: green;
+    font-weight: bold;
+}
+
+.incorrect-answer {
+    color: red;
+    font-weight: bold;
+}
+
+.submit-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 150px;
+    display: inline-block;
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
+}
+
+.page-header {
+    margin-bottom: 20px;
+    color: #007bff;
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.settings-form {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+.form-label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.form-control {
+    margin-bottom: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.large-textarea {
+    height: 120px; /* Increased height */
+    width: 100%;
+    margin-bottom: 1rem;
+    text-align:left;
+}
+
+.small-input {
+    max-width: 200px; /* Smaller width for number inputs */
+    text-align:left;
+}

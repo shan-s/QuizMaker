@@ -1,0 +1,42 @@
+@model Quiz
+
+@{
+    ViewData["Title"] = "Quiz Results";
+}
+
+<h1>Quiz Results for @Model.QuizName</h1>
+
+@if (Model.Questions != null)
+{
+    <ul>
+    @for (int i = 0; i < Model.Questions.Count; i++)
+    {
+        var question = Model.Questions[i];
+        <li>
+            <p class="question-text">Question @(i + 1): @question.QuestionText</p>
+            <ul>
+                <li class="answer-option @(question.Answer == "option_A" ? "correct-answer" : (question.SubmittedAnswer == "option_A" ? "incorrect-answer" : ""))">
+                    A) @question.OptionA
+                </li>
+                <li class="answer-option @(question.Answer == "option_B" ? "correct-answer" : (question.SubmittedAnswer == "option_B" ? "incorrect-answer" : ""))">
+                    B) @question.OptionB
+                </li>
+                <li class="answer-option @(question.Answer == "option_C" ? "correct-answer" : (question.SubmittedAnswer == "option_C" ? "incorrect-answer" : ""))">
+                    C) @question.OptionC
+                </li>
+                <li class="answer-option @(question.Answer == "option_D" ? "correct-answer" : (question.SubmittedAnswer == "option_D" ? "incorrect-answer" : ""))">
+                    D) @question.OptionD
+                </li>
+                <li class="answer-option @(question.Answer == "option_E" ? "correct-answer" : (question.SubmittedAnswer == "option_E" ? "incorrect-answer" : ""))">
+                    E) @question.OptionE
+                </li>
+            </ul>
+        </li>
+    }
+    </ul>
+    <p class="question-text">You have scored @(TempData["QuizResult"])%</p>
+}
+else
+{
+    <p>No questions found.</p>
+}
